@@ -1,4 +1,4 @@
-name: your-workflow-name
+name: Wine-Quality-Prediction
 on: [push]
 jobs:
   run:
@@ -16,13 +16,17 @@ jobs:
           pip install -r requirements.txt
           python train.py
        
-          echo "## MODEL METRICS " > report.md
+          echo " ## MODEL METRICS " > report.md
+          
           cat metrics.txt >> report.md
           
-          echo "## DATA VIZ " >> report.md
+          echo " ## DATA VIZ " >> report.md
+          
           
           cml-publish feature_importance.png --md >> report.md
-          cml-publish residual.png --md >> report.md
+          
+          cml-publish residuals.png --md >> report.md
+          
           # Post reports as comments in GitHub PRs
           # cat results.txt >> report.md
           cml-send-comment report.md
