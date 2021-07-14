@@ -17,7 +17,7 @@ jobs:
           python train.py
        
           echo " MODEL METRICS " 
-          cat Metrics.txt
+          cat metrics.txt
           # Post reports as comments in GitHub PRs
           # cat results.txt >> report.md
-          cml-send-comment report.md
+          # cml-send-comment report.md
